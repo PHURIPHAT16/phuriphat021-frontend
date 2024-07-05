@@ -6,7 +6,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="bg-white shadow-lg">
+    <nav className="bg-white shadow-lg fixed z-30 w-screen">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between">
           <div className="flex space-x-4">
@@ -27,7 +27,7 @@ const Navbar = () => {
                       d="M12 11c.284-1.75 1.75-3 3.5-3s3.216 1.25 3.5 3m-7 0c.284-1.75 1.75-3 3.5-3S18.216 11 18.5 13m-7-2c-.284 1.75-1.75 3-3.5 3S4 12.75 4 11m7 2c-.284 1.75-1.75 3-3.5 3S4 12.75 4 11"
                     />
                   </svg>
-                  <span className="font-bold">Navbar</span>
+                  <span className="font-bold">MyApp</span>
                 </div>
               </Link>
             </div>
@@ -39,7 +39,7 @@ const Navbar = () => {
               <Link href="/about">
                 <div className="py-5 px-3 text-gray-700 hover:text-gray-900">About</div>
               </Link>
-              <Link href="/services">
+              <Link href="/service">
                 <div className="py-5 px-3 text-gray-700 hover:text-gray-900">Services</div>
               </Link>
               <Link href="/contact">

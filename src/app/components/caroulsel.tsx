@@ -23,6 +23,7 @@ const Carousel = () => {
         }}
         navigation={true}
         className="mySwiper"
+        style={{ height: '650px' }}
       >
         <SwiperSlide>
           <Image 
