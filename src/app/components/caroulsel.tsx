@@ -30,8 +30,8 @@ const Carousel = () => {
             src="/pic1.jpg" 
             alt="Slide 1" 
             layout="responsive" 
-            width={300}
-            height={300}
+            width={150}
+            height={150}
           />
         </SwiperSlide>
         <SwiperSlide>

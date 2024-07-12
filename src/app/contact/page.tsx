@@ -11,8 +11,8 @@ export default function Contact() {
             the following:
           </p>
           <ul className="list-disc pl-4 mb-8">
-            <li className="text-gray-700">Email: example@yourcompany.com</li>
-            <li className="text-gray-700">Phone: (555) 555-5555</li>
+            <li className="text-gray-700">Email: example@Laycompany.com</li>
+            <li className="text-gray-700">Phone: (111) 000-000</li>
           </ul>
         </div>
 

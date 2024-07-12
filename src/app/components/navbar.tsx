@@ -1,6 +1,7 @@
 "use client"
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,21 +14,8 @@ const Navbar = () => {
             <div>
               <Link href="/">
                 <div className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
-                  <svg
-                    className="h-6 w-6 mr-1 text-blue-500"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 11c.284-1.75 1.75-3 3.5-3s3.216 1.25 3.5 3m-7 0c.284-1.75 1.75-3 3.5-3S18.216 11 18.5 13m-7-2c-.284 1.75-1.75 3-3.5 3S4 12.75 4 11m7 2c-.284 1.75-1.75 3-3.5 3S4 12.75 4 11"
-                    />
-                  </svg>
-                  <span className="font-bold">MyApp</span>
+                  <Image src="LOGO_OF_LOGO.svg" width={50} height={50} alt="logo"></Image>
+                  <span className="font-bold">Lay company</span>
                 </div>
               </Link>
             </div>
@@ -64,7 +52,7 @@ const Navbar = () => {
             >
               <svg
                 className="w-6 h-6"
-                xmlns="http://www.w3.org/2000/svg"
+                xmlns="LOGO_OF_LOGO"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
