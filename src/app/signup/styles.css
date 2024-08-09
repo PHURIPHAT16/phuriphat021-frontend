@@ -1,0 +1,101 @@
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa; /* Light grey background */
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Container Styles */
+  .container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    padding: 20px;
+  }
+  
+  /* Card Styles */
+  .card {
+    border-radius: 8px; /* Slightly rounded corners */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Increased maximum card width */
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+  
+  /* Card Header Styles */
+  .card-header {
+    border-bottom: 1px solid #ddd;
+    padding: 15px;
+    background-color: #007bff; /* Blue background */
+    color: white;
+    text-align: center;
+  }
+  
+  .card-title {
+    margin: 0;
+    font-size: 1.25rem; /* Slightly larger title font */
+  }
+  
+  /* Card Body Styles */
+  .card-body {
+    padding: 20px;
+  }
+  
+  /* Form Field Styles */
+  .form-label {
+    font-weight: 600;
+    margin-bottom: 0.5rem; /* Spacing between label and input */
+    display: block;
+  }
+  
+  .form-control {
+    border-radius: 4px; /* Slightly rounded corners */
+    border: 1px solid #ced4da;
+    height: 45px; /* Increased height */
+    width: 100%; /* Full width of the parent container */
+    padding: 0 1rem; /* Padding inside input fields */
+    font-size: 1rem; /* Consistent font size */
+    margin-bottom: 1.5rem; /* Spacing between fields */
+    box-shadow: none;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Smooth transition */
+  }
+  
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Button Styles */
+  .btn-success {
+    background-color: #007bff; /* Blue background */
+    border-color: #007bff;
+    color: #fff;
+    border-radius: 4px; /* Slightly rounded corners */
+    padding: 0.75rem 1.25rem;
+    font-size: 1.125rem;
+    transition: background-color 0.3s, border-color 0.3s; /* Smooth transition for hover */
+    width: 100%; /* Full width of the parent container */
+  }
+  
+  .btn-success:hover {
+    background-color: #0056b3;
+    border-color: #004a9a;
+  }
+  
+  /* Alert Styles */
+  .alert {
+    border-radius: 4px; /* Slightly rounded corners */
+    margin-top: 1rem;
+  }
+  
+  .alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+  }
+  
