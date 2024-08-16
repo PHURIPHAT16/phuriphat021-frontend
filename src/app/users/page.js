@@ -1,15 +1,16 @@
 'use client';
-import Link from 'next/link'
-import  "bootstrap/dist/css/bootstrap.min.css"
 
+import Link from 'next/link';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { useEffect, useState } from 'react';
 
 export default function Page() {
   const [items, setItems] = useState([]);
+
   useEffect(() => {
     async function getUsers() {
       try {
-        const res = await fetch('https://backend-puce-nine-19.vercel.app/api/users');
+        const res = await fetch('http://localhost:3000/api/users');
         if (!res.ok) {
           console.error('Failed to fetch data');
           return;
@@ -23,13 +24,17 @@ export default function Page() {
  
   getUsers()
   const interval  = setInterval(getUsers, 1000);
-  return () => clearInterval(interval );
+  return () => clearInterval(interval);
 }, []);
+
+const handleDelete = async (id) => {
+  console.log('user id :', id);
+}; //end handleDelete
 
   return (
     <>
 
-    <br /><br /><br /><br /><br /><br /><br /><br />
+    <br /><br /><br /><br /><br /><br /><br />
     <div className="container">
       <div class="card">
   <div class="card-header">
@@ -53,8 +58,8 @@ export default function Page() {
               <td className='text-center'>{item.id}</td>
               <td>{item.firstname}</td>
               <td>{item.lastname}</td>
-              <td><Link href="#" className="btn btn-warning">Edit</Link></td>
-              <td><Link href="#" className="btn btn-danger">Del</Link></td>
+              <td><Link href={`/users/edit/${item.id}`} className="btn btn-warning">Edit</Link></td>
+              <td><button class="btn btn-pill btn-danger" type="button" onClick={() => handleDelete(item.id)}><i class="fa fa-trash"></i>Delete</button></td>
             </tr>
           ))}
         </tbody>
@@ -64,7 +69,7 @@ export default function Page() {
 
     </div>
     </div>
-    <br /><br />
+    <br /><br /><br /><br /><br />
 
     </>
   );
