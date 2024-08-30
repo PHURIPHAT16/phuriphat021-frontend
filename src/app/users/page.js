@@ -29,7 +29,7 @@ export default function Page() {
 
 const handleDel = async (id) => {
   try {
-    const res = await fetch(`https://phuriphat021-frontend.vercel.app/api/users`, {
+    const res = await fetch(`https://backend-puce-nine-19.vercel.app/api/users`, {
       method: 'DELETE',
       headers: {
         'Accept': 'application/json',
