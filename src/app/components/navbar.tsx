@@ -1,10 +1,46 @@
 "use client"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  const handleLogout = () => {
+    // Remove token from localStorage
+    localStorage.removeItem('token');
+    setIsLoggedIn(false);
+    // Redirect to the home page
+    router.push('/login');
+  };
+
+  useEffect(() => {
+    // Check for token in localStorage
+    const token = localStorage.getItem('token');
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      router.push('/login');
+    }
+
+    // Add event listener for storage changes
+    const handleStorageChange = () => {
+      const token = localStorage.getItem('token');
+      setIsLoggedIn(!!token);
+    };
+
+    window.addEventListener('storage', handleStorageChange);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
+  }, [router]);
+
 
   return (
     <nav className="bg-white shadow-lg fixed z-30 w-screen">
@@ -37,12 +73,18 @@ const Navbar = () => {
           </div>
 
           <div className="hidden md:flex items-center space-x-1">
-            <Link href="/login">
-              <div className="py-2 px-3 bg-blue-500 text-white rounded hover:bg-blue-400">Login</div>
-            </Link>
-            <Link href="/signup">
-              <div className="py-2 px-3 bg-gray-200 text-gray-700 rounded hover:bg-gray-100">Signup</div>
-            </Link>
+          {isLoggedIn ? (
+              <button type="button" className="btn btn-outline-danger me-2" onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              <>
+        <Link href="/login">
+          <div className="block py-2 px-4 text-sm hover:bg-gray-200">Login</div>
+        </Link>
+        <Link href="/signup">
+          <div className="block py-2 px-4 text-sm hover:bg-gray-200">Signup</div>
+        </Link></>)}
           </div>
 
           <div className="md:hidden flex items-center">
@@ -82,12 +124,18 @@ const Navbar = () => {
         <Link href="/contact">
           <div className="block py-2 px-4 text-sm hover:bg-gray-200">Contact</div>
         </Link>
+            {isLoggedIn ? (
+              <button type="button" className="btn btn-outline-danger me-2" onClick={handleLogout}>
+                Logout
+              </button>
+            ) : (
+              <>
         <Link href="/login">
           <div className="block py-2 px-4 text-sm hover:bg-gray-200">Login</div>
         </Link>
         <Link href="/signup">
           <div className="block py-2 px-4 text-sm hover:bg-gray-200">Signup</div>
-        </Link>
+        </Link></>)}
       </div>
     </nav>
   );

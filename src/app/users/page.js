@@ -10,7 +10,7 @@ export default function Page() {
   useEffect(() => {
     async function getUsers() {
       try {
-        const res = await fetch('http://localhost:3000/api/users');
+        const res = await fetch('https://backend-puce-nine-19.vercel.app/api/users');
         if (!res.ok) {
           console.error('Failed to fetch data');
           return;
@@ -27,9 +27,28 @@ export default function Page() {
   return () => clearInterval(interval);
 }, []);
 
-const handleDelete = async (id) => {
-  console.log('user id :', id);
-}; //end handleDelete
+const handleDel = async (id) => {
+  try {
+    const res = await fetch(`https://phuriphat021-frontend.vercel.app/api/users`, {
+      method: 'DELETE',
+      headers: {
+        'Accept': 'application/json',
+      },
+      body: JSON.stringify({ id }),
+    });
+
+
+    if (!res.ok) {
+      throw new Error('Network response was not ok');
+    }
+
+    const result = await res.json();
+    console.log(result);
+
+  } catch (error) {
+    console.error('There was a problem with the fetch operation:', error);
+  }
+};
 
   return (
     <>
@@ -59,7 +78,7 @@ const handleDelete = async (id) => {
               <td>{item.firstname}</td>
               <td>{item.lastname}</td>
               <td><Link href={`/users/edit/${item.id}`} className="btn btn-warning">Edit</Link></td>
-              <td><button class="btn btn-pill btn-danger" type="button" onClick={() => handleDelete(item.id)}><i class="fa fa-trash"></i>Delete</button></td>
+              <td><button className="btn btn-danger" onClick={() => handleDel(item.id)}>Del</button></td>
             </tr>
           ))}
         </tbody>

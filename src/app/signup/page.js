@@ -12,7 +12,7 @@ export default function Page() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch('https://localhost:3000/api/users', {
+    const res = await fetch('https://backend-puce-nine-19.vercel.app/api/users', {
       method: 'POST',
       headers: {
         'Accept' : 'application/json',
